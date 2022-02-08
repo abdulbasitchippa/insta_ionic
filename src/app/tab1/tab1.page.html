@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="dark">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+Insta Clone
+</ion-title>
+<ion-buttons slot="end">
+  <ion-button color="dark">
+    <ion-icon slot="icon-only" name="send"></ion-icon>
+  </ion-button>
+</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>Stories</p>
+  <div class="stories">
+    <div class="story">
+      <div class="add_story">
+        <img src="../../assets/code.jpg">
+        <ion-icon color="primary" name="add-circle"></ion-icon>
+      </div>
+      <p style="color: #86888f;">libra.laura</p>
+    </div>
+    <div class="story">
+      <div class="img-box">
+        <img src="../../assets/code.jpg">
+      </div>
+      <p>susan_mda</p>
+    </div>
+    <div class="story">
+      <div class="img-box">
+        <img src="../../assets/code.jpg">
+      </div>
+      <p>susan_mda</p>
+    </div>
+    <div class="story">
+      <div class="img-box">
+        <img src="../../assets/code.jpg">
+      </div>
+      <p>smith.allan</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <ion-card *ngFor="let post of postsDataAll">
+
+<!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
+  Toggle Infinite Scroll
+</ion-button> -->
+
+<ion-list>
+
+  <ion-item no-padding lines="none">
+    <ion-avatar slot="start">
+      <img src={{post.picture.thumbnail}}>
+    </ion-avatar>
+    <ion-label>{{post.name.first}}{{post.name.last}}</ion-label>
+    <ion-icon slot="end" name="more"></ion-icon>
+  </ion-item>
+
+  <img class="post_img" src={{post.picture.medium}} (click)="getimage(post.id.value)">
+
+  <div class="flex-button">
+    <div>
+      <ion-icon name="heart"></ion-icon>
+      <ion-icon name="text"></ion-icon>
+      <!-- <ion-icon name="send"></ion-icon> -->
+    </div>
+    <ion-icon name="bookmark"></ion-icon>
+  </div>
+
+  <p class="insta-text"><b>{{post.dob.age}} Likes</b></p>
+<p class="insta-text"><b>A_b</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ipsum sunt iste nemo laboriosam ratione enim. Aliquam commodi, magni atque voluptas exercitationem vero quo quia nulla, totam amet nam eligendi?</p>
+
+</ion-list>
+
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data..."
+    >
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-card>
+</ion-content>
