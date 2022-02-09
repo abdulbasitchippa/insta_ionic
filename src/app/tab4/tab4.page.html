@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab4</ion-title>
+    <ion-title>single post</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-card>
+  <img class="post_img" src={{post.picture.medium}} (click)="getimage(post.id.value)">
+
+  <div class="flex-button">
+    <div>
+      <ion-icon name="heart"></ion-icon>
+      <ion-icon name="text"></ion-icon>
+    </div>
+    <ion-icon name="bookmark"></ion-icon>
+  </div>
+
+  <p class="insta-text"><b>{{post.dob.age}} Likes</b></p>
+<p class="insta-text"><b>A_b</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ipsum sunt iste nemo laboriosam ratione enim. Aliquam commodi, magni atque voluptas exercitationem vero quo quia nulla, totam amet nam eligendi?</p>
+
+</ion-card>
 </ion-content>

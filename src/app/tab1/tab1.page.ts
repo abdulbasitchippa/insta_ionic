@@ -1,6 +1,7 @@
+import { Component, ViewChild } from '@angular/core';
 import { ApisService } from "../servies/apis.service";
-import { Component,ViewChild  } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-tab1',
@@ -14,7 +15,7 @@ export class Tab1Page {
   postsDataAll
   postNo = 1
 
-  constructor(public api: ApisService) {}
+  constructor(public api: ApisService, private router: Router) {}
 
   loadData(event) {
     setTimeout(() => {
@@ -24,7 +25,6 @@ export class Tab1Page {
           event.target.complete();
     }, 500);
   }
-
 
   ionViewWillEnter() {
     console.log("ionview", this.postNo)
@@ -43,6 +43,8 @@ export class Tab1Page {
 
   getimage(id){
     console.log(id)
+    this.router.navigate(['tabs/tab4']);
+    return this.api.getuid(id);
   }
 
 }

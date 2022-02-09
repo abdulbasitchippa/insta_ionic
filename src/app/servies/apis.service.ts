@@ -10,7 +10,9 @@ import { retry, catchError } from 'rxjs/operators';
 export class ApisService {
 
   getApiUrl : string = "https://randomuser.me/api/?page=1&seed=feed";
-  getUserApiUrl : string = "https://randomuser.me/api/?page=1&seed=feed";
+  getUserApiUrl : string = "https://randomuser.me/api/?,";
+
+  uId
 
   constructor(private httpCM : HttpClientModule,private http: HttpClient) { }
 
@@ -39,8 +41,14 @@ export class ApisService {
         catchError(this.handleError)
       )
   }
-  getuser(uid) {
-    return this.http.get(this.getApiUrl+`&results=${uid}`)
+
+  getuid(uid){
+    console.log("uid in service",uid)
+    this.uId = uid
+  }
+
+  getuser() {
+    return this.http.get(this.getUserApiUrl+`inc=id=${this.uId}`)
       .pipe(
         retry(2),
         catchError(this.handleError)
