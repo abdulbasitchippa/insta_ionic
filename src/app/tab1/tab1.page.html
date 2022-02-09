@@ -48,13 +48,9 @@ Insta Clone
 
   <hr>
 
+
+  <ion-list>
   <ion-card *ngFor="let post of postsDataAll">
-
-<!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
-  Toggle Infinite Scroll
-</ion-button> -->
-
-<ion-list>
 
   <ion-item no-padding lines="none">
     <ion-avatar slot="start">
@@ -70,7 +66,6 @@ Insta Clone
     <div>
       <ion-icon name="heart"></ion-icon>
       <ion-icon name="text"></ion-icon>
-      <!-- <ion-icon name="send"></ion-icon> -->
     </div>
     <ion-icon name="bookmark"></ion-icon>
   </div>
@@ -78,15 +73,15 @@ Insta Clone
   <p class="insta-text"><b>{{post.dob.age}} Likes</b></p>
 <p class="insta-text"><b>A_b</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ipsum sunt iste nemo laboriosam ratione enim. Aliquam commodi, magni atque voluptas exercitationem vero quo quia nulla, totam amet nam eligendi?</p>
 
+</ion-card>
 </ion-list>
 
-<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="postNo >= 10">
   <ion-infinite-scroll-content
-    loadingSpinner="bubbles"
+    loadingSpinner="lines"
     loadingText="Loading more data..."
     >
   </ion-infinite-scroll-content>
 </ion-infinite-scroll>
 
-</ion-card>
 </ion-content>

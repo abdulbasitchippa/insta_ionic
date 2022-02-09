@@ -35,8 +35,6 @@ h1 {
 }
 .img_box {
   border: 1px solid white;
-  width: 33.3%;
-  padding-bottom: 31%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: fit-content;
+  max-width: 100%;
 }
